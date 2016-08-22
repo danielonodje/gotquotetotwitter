@@ -15,10 +15,6 @@ var twittybird = new Twit({
     timeout_ms: 60*1000
 });
 
-twittybird.get('users/suggestions/:slug', { slug: 'funny' }, function (err, data, response) {
-            console.log(err);
-        });
-
  request
     .get("https://got-quotes.herokuapp.com/quotes")
     .end(function(err,res){
@@ -42,7 +38,6 @@ twittybird.get('users/suggestions/:slug', { slug: 'funny' }, function (err, data
             if(answer == "yes" || answer == "Yes" || answer == "y" || answer == "Y"){
                 twittybird.post('statuses/update', { status: tweet }, function(err, data, response) {
                     console.log("Tweet sent. Tis a pleasure to serve thee, milord");
-                    // console.log(data)
                 })
                 
                 rlobject.close();
